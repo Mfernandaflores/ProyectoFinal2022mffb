@@ -1,0 +1,6 @@
+.boton1 [type="submit"]{background-color: rgb(255, 217, 0);}/*Servicios*/
+.boton2 [type="submit"]{background-color: skyblue;}/*Tiendas*/
+.boton3 [type="submit"]{background-color: #008CBA;}/*Contacto*/
+.boton1 [type="submit"]{padding: 20px 190px;}/*Servicios*/
+.boton2 [type="submit"]{padding: 20px 190px;}/*Tiendas*/
+.boton3 [type="submit"]{padding: 20px 190px;}/*Contacto*/
