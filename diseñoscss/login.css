@@ -22,6 +22,7 @@ input[type=text], input[type=password] {
   }
   img.avatar {
     width: 25%;
+    height: 90px;
     border-radius: 20%;
   }
   span.psw {

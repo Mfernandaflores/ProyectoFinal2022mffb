@@ -1,32 +1,35 @@
 <?php
 error_reporting(0);
 include 'base.php';
-if (isset($_POST['aceptar'])) {
-    $usering = $conn->real_escape_string($_POST['usuariobd']);
-    $passwording = $conn->real_escape_string($_POST['contrasenabd']);
-    $consulta = "SELECT * FROM contactologin WHERE Usuario='$usering' and Contrasena='$passwording'";
-    if ($resultado = $conn->query($consulta)) {
-        while ($row = $resultado->fetch_array()) {
-            $ussi = $row['Usuario'];
-            $passi = $row['Contrasena'];
-        }
-        $resultado->close();
-    }
 
-    $conn->close();
-    if (isset($usering) && isset($passwording)) {
-        if ($usering == $ussi && $passwording == $passi) {
-            $_SESSION['loginsi'] = TRUE;
-            $_SESSION['Usuario'] = $usering;
-            header("location:contacto.php");
-        }
-        else {
-            echo '<script lenguage="javascript">';
-            echo 'alert("¡Los datos son erroneos intentalo de nuevo!")
-            window.location = "login.php";
-            </script>';
-        }
-    }
+if (isset($_POST['aceptar'])) {
+$us=$conectar->real_escape_string($_POST['usuariobd']);
+$pass=$conectar->real_escape_string($_POST['contrasenabd']);
+$consulta="SELECT * FROM contactologin WHERE USUARIO='$us' and CONTRASENA='$pass'";
+
+if ($resultado=$conectar->query($consulta)) {
+  while ($row=$resultado->fetch_array()) {
+    $usok=$row['USUARIO'];
+    $pasok=$row['CONTRASENA'];
+  }
+  $resultado->close();
+}
+
+$conectar->close();
+if (isset($us) && isset($pass)) {
+  if ($us==$usok && $pass==$pasok) {
+    $_SESSION['logeosi'] = TRUE;
+    $_SESSION['USUARIO'] = $us;
+    header("location:mensajes.php");
+  }
+
+  else{ 
+    echo '<script lenguage="javascript">';
+    echo 'alert("¡Intentalo de nuevo)!")
+    window.location = "login.php";
+    </script>';
+  }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -41,7 +44,7 @@ if (isset($_POST['aceptar'])) {
 </head>
 
 <body style="background: url(imagenes/fondoprogreso.jpg); background-size: cover; background-repeat: no-repeat;"">
-    <form action=" action_page.php" method="post" align="center">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" align="center">
     <div class="imgcontainer">
         <img src="imagenes/lblogotipo.png" alt="Avatar" class="avatar">
     </div>
@@ -49,8 +52,8 @@ if (isset($_POST['aceptar'])) {
         <label for="uname"><b>Usuario</b></label><br>
         <input type="text" placeholder="Enter Username" name="usuariobd" required><br>
         <label for="psw"><b>Contraseña</b></label><br>
-        <input type="password" placeholder="Enter Password" name="contraseñabd" required><br>
-        <button type="submit">Login</button>
+        <input type="password" placeholder="Enter Password" name="contrasenabd" required><br>
+        <button type="submit" name="aceptar">Login</button>
         <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
