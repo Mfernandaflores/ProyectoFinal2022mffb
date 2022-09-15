@@ -1,0 +1,9 @@
+<?php
+session_start();
+$conectar=mysqli_connect(
+    'localhost',
+    'root',
+    '',
+    'pcc2022_evalfinal'
+);
+?>

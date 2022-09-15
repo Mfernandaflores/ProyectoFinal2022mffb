@@ -10,7 +10,22 @@
   <link rel="stylesheet" href="diseñoscss/botonesinicio.css">
   <title>Librerias Progreso</title>
 </head>
+
 <body>
+<?php 
+if (!empty($_POST['flor']) && !empty($_POST['sol'])) {
+  $estrella=$_POST['flor'];
+  $luna=$_POST['sol'];
+  if ($estrella=="LCP" && $luna=="123"){
+
+  } else {
+    echo '<script lenguage="javascript">';
+    echo 'alert("datos ingresados invalidos")
+    window.location = "index.html";
+    </script>';
+  }
+}
+?>
   <table width="100%" align="center">
     <tr>
       <td colspan="12">
@@ -39,26 +54,27 @@
           </button>
         </div>
       </td>
-    </tr>
+    </tr> 
     <tr>
-      <td>
+      <td >
         <section class="boton1">
-          <form action="servicios.html"><button type="submit">Servicios</button></form>
+          <form action="productos.html"><button type="submit">Productos/Servicios</button></form>
         </section>
       </td>
       <td>
         <section class="boton2">
-          <form action="tiendas.html"><button type="submit">Tiendas</button></form>
+          <form action="Tiendas.php"><button type="submit">Tiendas</button></form>
         </section>
       </td>
       <td>
         <section class="boton3">
-          <form action="login.php"><button type="submit">Contactenos</button></form>
+          <form action="Contacto.php"><button type="submit">Contactenos</button></form>
         </section>
       </td>
     </tr>
   </table>
   <table width="100%" align="center">
+    <h1>Ofertas del Mes</h1>
     <tr>
       <td colspan="4" rowspan="2" align="center"><img src="imagenes/utiles-escolares.png" width="500" height="750px">
       </td>
@@ -72,6 +88,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
+
+   
+        <footer>
+            <table width="100%">
+              
+                    <td>PBX: 7777-8888               DIRECCIÓN:16 calle 8va avenida zona 1</td>
+                    <td>Carnet: 2021-40354</td>
+                    <td>Nombre: Maryorie Fernanda Flores Blanco</td>
+                </tr>
+            </table>
+        </footer>
+
+        
+
 </body>
 
 </html>
+
